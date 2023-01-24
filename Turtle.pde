@@ -37,7 +37,28 @@ class Turtle {
         oldx = x;
         oldy = y;
     }
-
+    
+    // Corey's attempt 
+    void circle(int radius, int extent, boolean reverse)
+    {
+      noFill();
+      rect(oldx,oldy,10,10);
+      
+      int c1 = oldx+radius;
+      int c2 = oldy;
+      
+      if(reverse == false){
+        arc(oldx+radius,oldy,radius*2,radius*2, PI, PI + radians(extent));
+      }else{
+        arc(oldx+radius,oldy,radius*2,radius*2, TWO_PI, TWO_PI + radians(extent));
+      }
+      
+      oldx = int(c1 - cos(radians(extent))*radius);
+      oldy = int(c2 - sin(radians(extent))*radius);
+      
+      ellipse(oldx,oldy,10,10);
+    }
+    
     void home () {
         oldx = int(width/2);
         oldy = int(height/2);
